@@ -1,0 +1,21 @@
+<h2>Welcome <%= user.name %></h2>
+
+<h3>Total Users: <span id="users">0</span></h3>
+<h3>Total Papers: <span id="papers">0</span></h3>
+
+<a href="/upload">Upload Paper</a> |
+<a href="/papers">View Papers</a> |
+<a href="/logout">Logout</a>
+
+<script>
+async function load(){
+ const res = await fetch("/dashboard-data")
+ const data = await res.json()
+
+ document.getElementById("users").innerText = data.totalUsers
+ document.getElementById("papers").innerText = data.totalPapers
+}
+
+setInterval(load, 3000)
+load()
+</script>

@@ -1,0 +1,12 @@
+<h2>All Papers</h2>
+
+<ul>
+ <% papers.forEach(p => { %>
+  <li>
+   <%= p.title %> -
+   <a href="/paper/<%= p._id %>">View</a>
+  </li>
+ <% }) %>
+</ul>
+
+<a href="/dashboard">Back</a>
